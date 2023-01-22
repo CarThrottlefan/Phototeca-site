@@ -8,63 +8,42 @@ let submitValid = false;
 async function validateSubmission(event)
 {
     event.preventDefault();
+
+    form.author.style.backgroundColor = "white";
+    form.image.style.backgroundColor = "white";
+    form.description.style.backgroundColor = "white";
+    form.tags.style.backgroundColor = "white";
+    form.alt.style.backgroundColor = "white";
     
     if(form.author.value === "")
     {
         form.author.style.backgroundColor = "#e63d3d";
         submitValid = false;
     }
-    else
-    {
-        form.author.style.backgroundColor = "white";
-        submitValid = true;
-    }
-
-    if(form.image.value === "")
+    else if(form.image.value === "")
     {
         form.image.style.backgroundColor = "#e63d3d";
         submitValid = false;
     }
-    else
-    {
-        form.image.style.backgroundColor = "white";
-        submitValid = true;
-    }
-
-    if(form.description.value === "")
+    else if(form.description.value === "")
     {
         form.description.style.backgroundColor = "#e63d3d";
         submitValid = false;
     }
-    else
-    {
-        form.description.style.backgroundColor = "white";
-        submitValid = true;
-    }
-
-    if(form.alt.value === "")
+    else if(form.alt.value === "")
     {
         form.alt.style.backgroundColor = "#e63d3d";
         submitValid = false;
     }
-    else
-    {
-        form.alt.style.backgroundColor = "white";
-        submitValid = true;
-    }
-
-    if(form.tags.value === "")
+    else if(form.tags.value === "")
     {
         form.tags.style.backgroundColor = "#e63d3d";
         submitValid = false;
     }
     else
     {
-        form.tags.style.backgroundColor = "white";
         submitValid = true;
     }
-    
-    
     
     let toSend = {
         author: form.author.value,
@@ -95,44 +74,3 @@ async function validateSubmission(event)
 
 let form = document.getElementById("submitForm");
     form.addEventListener("submit", validateSubmission);
-
-
-
-
-
-
-/*$(document).ready(function(){
-    // click on button submit
-    $("#submit").on('click', function(){
-        // send ajax
-        $.ajax({
-            url: 'https://wt.ops.labs.vu.nl/api23/53e16a12', // url where to submit the request
-            type : "POST", // type of action POST || GET
-            dataType : 'json', // data type
-            data : $("#submitForm").serialize(), // post data || get data
-            success : function(result) {
-                // you can see the result from the console
-                // tab of the developer tools
-                console.log(result);
-            },
-            error: function(xhr, resp, text) {
-                console.log(xhr, resp, text);
-            }
-        })
-    });
-});
-
-
-var SendInfo= { SendInfo: [author:author.value, ]};
-
-        $.ajax({
-            type: 'post',
-            url: 'https://wt.ops.labs.vu.nl/api23/53e16a12',
-            data: JSON.stringify(SendInfo),
-            contentType: "application/json; charset=utf-8",
-            traditional: true,
-            success: function (data) {
-                ...
-            }
-        });
-*/
