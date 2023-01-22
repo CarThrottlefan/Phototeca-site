@@ -22,23 +22,22 @@
             <caption>Pictures of the historical figures in question</caption>
             
 
-		<form id="form">
-		  <table class="formtable">
-		    <tr>
-		      <td>Add your favourite author to this album</td>
-		    </tr>
-		    <tr>
-		      <td><input type="text" id="author" name="author" required oninvalid="this.setCustomValidity('You must enter a name')" oninput="this.setCustomValidity('')" placeholder="Author Name"></td>
-		      <td><input type="url" id="image" name="image" required oninvalid="this.setCustomValidity('You must enter an URL')" oninput="this.setCustomValidity('')" placeholder="Img URL"></td>
-		      <td><input type="text" id="alt" name="alt" required oninvalid="this.setCustomValidity('You must enter an alt text')" oninput="this.setCustomValidity('')" placeholder="Alt Text"></td>
-		      <td><textarea id="description" name="description" required oninvalid="this.setCustomValidity('You must enter a description')" oninput="this.setCustomValidity('')" placeholder="Description"></textarea></td>
-		      <td><input type="text" id="tags" name="tags" required oninvalid="this.setCustomValidity('You must enter tags')" oninput="this.setCustomValidity('')" placeholder="Tags"></td>
-		    </tr>
-		    <tr>
-		      <td><input type="button" value="Add" onClick="submitForm()"></td>
-		    </tr>
-		  </table>
+    <form action="https://wt.ops.labs.vu.nl/api23/53e16a12" method="post" id="submitForm">
+		  <h2>Add your favourite authors:</h2>
+
+      <label for="author">Author's name</label>
+      <input type="text", id="author", name="author"> 
+      <label for="image">Image URL</label>
+      <input type="text", id="image", name="image"> 
+      <label for="alt">Alt text</label>
+      <input type="text" id="alt", name="alt"> 
+      <label for="description">Description</label>
+      <input type="text" id="description", name="description"> 
+      <label for="tags">Tags</label>
+      <input type="text" id="tags", name="tags">
+      <input type="submit" value="submit">
 		</form>
+
     </section>
 
 <nav class="links">
