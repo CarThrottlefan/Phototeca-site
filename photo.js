@@ -71,16 +71,18 @@ async function validateSubmission(event)
   .catch((error) => {
     console.error('Error:', error);
   });
+  
 }
 
 let form = document.getElementById("submitForm");
     form.addEventListener("submit", validateSubmission);
+
     
 /*function createAuthor(element)
 {
     return document.createElement(element);
 }
-
+ 
 function append(parrent, element)
 {
     return document.appendChild(element);
@@ -106,8 +108,40 @@ function displayDatabase()
     let lastPerson = data.length;
     for(let person = 0; person < lastPerson; person++)
     {
-        console.log(data[person].author); //for each author create an element that contains all fields
+        authorDisplay(person);
     }
+}
+
+function authorDisplay(x) //gets all the elements of the submission for an author, combines and then adds them to the DOM
+{
+    let skeleton = document.createElement('span');
+
+        let auth = document.createElement('p');
+        let authTxt = document.createTextNode(data[x].author);
+        auth.appendChild(authTxt);
+        skeleton.appendChild(auth);
+
+        let img = document.createElement('img');
+        img.src = data[x].image;
+        skeleton.appendChild(img);
+
+        let alt = document.createElement('p');
+        let altTxt = document.createTextNode(data[x].alt);
+        alt.appendChild(altTxt);
+        skeleton.appendChild(alt);
+
+        let descript = document.createElement('p');
+        let descriptTxt = document.createTextNode(data[x].description);
+        descript.appendChild(descriptTxt);
+        skeleton.appendChild(descript);
+
+        let tags = document.createElement('p');
+        let tagsTxt = document.createTextNode(data[x].tags);
+        tags.appendChild(tagsTxt);
+        skeleton.appendChild(tags);
+
+    let connect = document.getElementById('authorsAlbum');
+    connect.appendChild(skeleton);
 }
 
 getDatabase();
