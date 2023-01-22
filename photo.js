@@ -74,3 +74,41 @@ async function validateSubmission(event)
 
 let form = document.getElementById("submitForm");
     form.addEventListener("submit", validateSubmission);
+    
+function createAuthor(element)
+{
+    return document.createElement(element);
+}
+
+function append(parrent, element)
+{
+    return document.appendChild(element);
+}
+
+async function displayDatabase()
+{
+    try{
+        let resp = await fetch('https://wt.ops.labs.vu.nl/api23/53e16a12');
+       await console.log(resp.json());    
+    }
+    
+    catch(error){
+        console.log(error);
+    }
+}
+
+displayDatabase();
+/*async function renderData()
+{
+    let authors = await displayDatabase();
+    let html = '';
+
+    authors.forEach(author => {
+        let htmlSegment = '<div class = "author">
+                            <p>${author.author}</p>
+                            <img src = "${author.image}" >
+                            <p>$</p>
+                            
+    })
+}
+*/
