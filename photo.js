@@ -64,8 +64,21 @@ async function validateSubmission(event)
         submitValid = true;
     }
     
+    
+    
+    let toSend = {
+        author: form.author.value,
+        image: form.image.value,
+        alt: form.alt.value,
+        description: form.description.value,
+        tags: form.tags.value
+    };
+    
+    let jsonString = JSON.stringify(toSend);
+    console.log(jsonString);
+   
     fetch('https://wt.ops.labs.vu.nl/api23/53e16a12', {
-  method: 'POST', // or 'PUT'
+  method: 'POST',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -81,18 +94,7 @@ async function validateSubmission(event)
 }
 
 let form = document.getElementById("submitForm");
-form.addEventListener("submit", validateSubmission);
-
-let toSend = {
-    author: form.author,
-    image: 'form.image',
-    alt: form.alt,
-    description: form.description,
-    tags: form.tags
-};
-
-let jsonString = JSON.stringify(toSend);
-console.log(jsonString);
+    form.addEventListener("submit", validateSubmission);
 
 
 
