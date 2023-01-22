@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="test.css">
+    <script src="test.js"></script>
+    <title>Our Phototeca</title>
+</head>
+
+<body>
+  <div id="container"></div>
+  <h1><span id="header">The protagonists of our Phototeca</span></h1>
+    <section id="intro">
+        <h2>Short introductory word</h2>
+        <p>The aim of this page is to provide a little incursion in the history of some famous figures in literature history, 
+        some of which might be familiar to the reader through their universally known work</p>
+    </section>
+
+    <section>
+        <table class="album">
+            <caption>Pictures of the historical figures in question</caption>
+            
+
+		<form id="form">
+		  <table class="formtable">
+		    <tr>
+		      <td>Add your favourite author to this album</td>
+		    </tr>
+		    <tr>
+		      <td><input type="text" id="author" name="author" required oninvalid="this.setCustomValidity('You must enter a name')" oninput="this.setCustomValidity('')" placeholder="Author Name"></td>
+		      <td><input type="url" id="image" name="image" required oninvalid="this.setCustomValidity('You must enter an URL')" oninput="this.setCustomValidity('')" placeholder="Img URL"></td>
+		      <td><input type="text" id="alt" name="alt" required oninvalid="this.setCustomValidity('You must enter an alt text')" oninput="this.setCustomValidity('')" placeholder="Alt Text"></td>
+		      <td><textarea id="description" name="description" required oninvalid="this.setCustomValidity('You must enter a description')" oninput="this.setCustomValidity('')" placeholder="Description"></textarea></td>
+		      <td><input type="text" id="tags" name="tags" required oninvalid="this.setCustomValidity('You must enter tags')" oninput="this.setCustomValidity('')" placeholder="Tags"></td>
+		    </tr>
+		    <tr>
+		      <td><input type="button" value="Add" onClick="submitForm()"></td>
+		    </tr>
+		  </table>
+		</form>
+    </section>
+
+<nav class="links">
+  <a href="https://en.wikipedia.org/wiki/George_Orwell">George Orwell</a>  | 
+  <a href="https://en.wikipedia.org/wiki/Edgar_Allan_Poe">Edgar Allan Poe</a>  | 
+  <a href="https://en.wikipedia.org/wiki/Dale_Carnegie">Dale Carnegie</a> 
+  <a style="float:right" href="report.html"><img src="http://cdn.onlinewebfonts.com/svg/img_553946.png" alt="Compatible-icon" style="height:30px;margin-bottom: 30px;"></a>
+</nav>
+
+</body>
+</html>
