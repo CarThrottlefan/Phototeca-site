@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
-    <link rel="stylesheet" href="phot\o.css">
+    <link rel="stylesheet" href="photo.css">
     <script src="photo.js" async></script>
     <title>Our Phototeca</title>
 </head>
@@ -17,7 +17,7 @@
         some of which might be familiar to the reader through their universally known work</p>
     </section>
 
-    <section>
+    <section id="album">
             <h2>Pictures of the historical figures in question</h2>
             
             <span>
@@ -27,22 +27,19 @@
               <p>Richard Phillips Feynman (May 11, 1918 – February 15, 1988) was an American theoretical physicist, known for his work in the path integral formulation of quantum mechanics, the theory of quantum electrodynamics, the physics of the superfluidity of supercooled liquid helium, as well as his work in particle physics for which he proposed the parton model. For his contributions to the development of quantum electrodynamics, Feynman received the Nobel Prize in Physics in 1965 jointly with Julian Schwinger and Shin'ichirō Tomonaga.</p>
               <p>richard-feynman, nobel, physics</p>
             </span>
-
+  <div id="form">
     <form action="https://wt.ops.labs.vu.nl/api23/53e16a12" method="post" id="submitForm">
-		  <h2>Add your favourite authors:</h2>
+      <h2>Add your favourite authors:</h2>
 
-      <label for="author">Author's name</label>
-      <input type="text" id="author" name="author"> 
-      <label for="image">Image URL</label>
-      <input type="text" id="image" name="image"> 
-      <label for="alt">Alt text</label>
-      <input type="text" id="alt" name="alt"> 
-      <label for="description">Description</label>
-      <input type="text" id="description" name="description"> 
-      <label for="tags">Tags</label>
-      <input type="text" id="tags" name="tags">
-      <input type="submit" value="submit">
-		</form>
+      <input type="text" id="author" name="author" placeholder="Author Name"> 
+      <input type="url" id="image" name="image" placeholder="Image URL"> 
+      <input type="text" id="alt" name="alt" placeholder="Alt Text"> 
+      <input type="text" id="description" name="description" placeholder="Description"> 
+      <input type="text" id="tags" name="tags" placeholder="Tags">
+
+      <input type="submit" value="Add">
+    </form>
+  </div>
 
     </section>
     <!---->
