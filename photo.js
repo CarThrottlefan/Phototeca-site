@@ -4,6 +4,7 @@ let altValid = false;
 let descriptionValid = false;
 let tagsValid = false;*/
 let submitValid = false;
+let data;
 
 async function validateSubmission(event)
 {
@@ -75,7 +76,7 @@ async function validateSubmission(event)
 let form = document.getElementById("submitForm");
     form.addEventListener("submit", validateSubmission);
     
-function createAuthor(element)
+/*function createAuthor(element)
 {
     return document.createElement(element);
 }
@@ -83,21 +84,34 @@ function createAuthor(element)
 function append(parrent, element)
 {
     return document.appendChild(element);
-}
+}*/
 
-async function displayDatabase()
+async function getDatabase()
 {
     try{
-        let resp = await fetch('https://wt.ops.labs.vu.nl/api23/53e16a12');
-       await console.log(resp.json());    
+        let response = await fetch('https://wt.ops.labs.vu.nl/api23/53e16a12');
+        data = await response.json();
+        //console.log(data);  
     }
     
     catch(error){
         console.log(error);
     }
+    displayDatabase();
 }
 
-displayDatabase();
+function displayDatabase()
+{
+    
+    let lastPerson = data.length;
+    for(let person = 0; person < lastPerson; person++)
+    {
+        console.log(data[person].author); //for each author create an element that contains all fields
+    }
+}
+
+getDatabase();
+
 /*async function renderData()
 {
     let authors = await displayDatabase();
