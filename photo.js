@@ -1,8 +1,3 @@
-/*let authorValid = false;
-let imageValid = false;
-let altValid = false;
-let descriptionValid = false;
-let tagsValid = false;*/
 let submitValid = false;
 let data;
 
@@ -57,7 +52,7 @@ async function validateSubmission(event)
     let jsonString = JSON.stringify(toSend);
     console.log(jsonString);
    
-    fetch('https://wt.ops.labs.vu.nl/api23/53e16a12', {
+    await fetch('https://wt.ops.labs.vu.nl/api23/53e16a12', {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
@@ -71,29 +66,20 @@ async function validateSubmission(event)
   .catch((error) => {
     console.error('Error:', error);
   });
+
+  refreshGallery();
+  getDatabase();
   
 }
 
 let form = document.getElementById("submitForm");
     form.addEventListener("submit", validateSubmission);
 
-    
-/*function createAuthor(element)
-{
-    return document.createElement(element);
-}
- 
-function append(parrent, element)
-{
-    return document.appendChild(element);
-}*/
-
 async function getDatabase()
 {
     try{
         let response = await fetch('https://wt.ops.labs.vu.nl/api23/53e16a12');
         data = await response.json();
-        //console.log(data);  
     }
     
     catch(error){
@@ -144,19 +130,15 @@ function authorDisplay(x) //gets all the elements of the submission for an autho
     connect.appendChild(skeleton);
 }
 
-getDatabase();
-
-/*async function renderData()
+function refreshGallery()
 {
-    let authors = await displayDatabase();
-    let html = '';
+    let toRemove = document.getElementById('authorsAlbum');
+    toRemove.remove();
 
-    authors.forEach(author => {
-        let htmlSegment = '<div class = "author">
-                            <p>${author.author}</p>
-                            <img src = "${author.image}" >
-                            <p>$</p>
-                            
-    })
+    let newSpan = document.createElement('span');
+    newSpan.setAttribute('id', 'authorsAlbum');
+    let connect = document.getElementById('album');
+    connect.appendChild(newSpan);
 }
-*/
+
+getDatabase();
