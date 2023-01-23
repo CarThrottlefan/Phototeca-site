@@ -67,8 +67,11 @@ async function validateSubmission(event)
     console.error('Error:', error);
   });
 
-  refreshGallery();
-  getDatabase();
+  if(submitValid)
+  {
+    refreshGallery();
+    getDatabase();
+  }
   
 }
 
@@ -142,3 +145,21 @@ function refreshGallery()
 }
 
 getDatabase();
+
+async function resetDatabase(event)
+{
+  let url = 'https://wt.ops.labs.vu.nl/api23/53e16a12/reset';
+  let response = await fetch(url);
+
+  if(response.ok)
+  {
+    console.log('Reseted database');
+  }
+  else
+  {
+    console.log(response.status);
+  }
+}
+
+let resetButton = document.getElementById("reset");
+    resetButton.addEventListener("click", resetDatabase);
