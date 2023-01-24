@@ -1,5 +1,6 @@
 let submitValid = false;
 let data;
+let names = [];
 
 async function validateSubmission(event)
 {
@@ -71,6 +72,7 @@ async function validateSubmission(event)
   {
     refreshGallery();
     getDatabase();
+    names=[];
     updateList();
   }
   
@@ -214,6 +216,7 @@ async function resetDatabase(event)
   if(response.ok)
   {
     console.log('Reseted database');
+    names=[];
     refreshGallery();
     getDatabase();
     updateList();
@@ -326,24 +329,28 @@ function makeList(x) //gets all the elements of the submission for an author, co
 
     let connect = document.getElementById('authorsAlbum');
     connect.appendChild(skeleton);*/
-    let skeleton = document.createElement('li');
-    
-    let input = document.createElement('input');
-    let inputNum = 'f' + x;
-    console.log(inputNum); //FIXME remove after testing
-    input.setAttribute('id', inputNum);
-    input.setAttribute('type', 'checkbox');
-    
-    let label = document.createElement('label');
-    label.setAttribute('for', inputNum);
-    let labelTxt = document.createTextNode(data[x].author);
-    label.appendChild(labelTxt);
+    if(!names.includes(data[x].author))
+    {
+        names.push(data[x].author);
 
-    skeleton.appendChild(input);
-    skeleton.appendChild(label);
-    let connect = document.querySelector('.filter-list');
-    connect.appendChild(skeleton);
+        let skeleton = document.createElement('li');
+        
+        let input = document.createElement('input');
+        let inputNum = 'f' + x;
+        console.log(inputNum); //FIXME remove after testing
+        input.setAttribute('id', inputNum);
+        input.setAttribute('type', 'checkbox');
+        
+        let label = document.createElement('label');
+        label.setAttribute('for', inputNum);
+        let labelTxt = document.createTextNode(data[x].author);
+        label.appendChild(labelTxt);
 
+        skeleton.appendChild(input);
+        skeleton.appendChild(label);
+        let connect = document.querySelector('.filter-list');
+        connect.appendChild(skeleton);
+    }
 }
 
 function updateList() //remove ul, make a new one
