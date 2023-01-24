@@ -196,11 +196,6 @@ function toggleMenu() {
 
 hamburger.addEventListener("click", toggleMenu);
 
-menuItems.forEach( //this hides the menu if an user clicks on it
-  function(menuItem) { 
-    menuItem.addEventListener("click", toggleMenu);
-  }
-)
 /*modal*/
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
