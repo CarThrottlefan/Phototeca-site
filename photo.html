@@ -7,17 +7,19 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="photo.js" async></script>
     <title>Our Phototeca</title>
+    <!--Submit modal source: "https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/"-->
+    <!--Hamburger menu source: "https://dev.to/ljcdev/easy-hamburger-menu-with-js-2do0"-->
 </head>
 
 <body>
   <div id="container"></div>
   <h1><span id="header">The protagonists of our Phototeca</span></h1>
-  <!--here starts the code for the hamburger menu, courtesy of https://dev.to/ljcdev/easy-hamburger-menu-with-js-2do0-->
+  <!--------------------Hamburger Menu starts here--------------------->
   <ul class="menu">
     <li><a class="menuItem" href="#">Home</a></li>
     <li>
       <a class="menuItem" >
-      <!--Here starts the code for the modal, courtesy of https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/-->
+      <!------------------Submit Modal starts here---------------------------->
         <section class="modal hidden">
           <div class="flex">
             <button class="btn-close">⨉</button>
@@ -31,16 +33,30 @@
           <input type="text" id="alt" name="alt" placeholder="Alt Text"> 
           <input type="text" id="description" name="description" placeholder="Description"> 
           <input type="text" id="tags" name="tags" placeholder="Tags">
-          <input type="submit" value="Add">
+          <p><input type="submit" value="Add"></p>
           </form>
         </section>
 
         <div class="overlay hidden"></div>
         <button class="btn btn-open">Submit new author</button>
-      <!--here ends the code for the modal-->
+      <!-----------------Submit Modal ends here--------------------->
       </a>
     </li>
-    <li><a class="menuItem" >List of current authors</a></li>
+    <li>
+      <a class="menuItem" >
+        <!--------------------List Modal starts here----------------->
+        <!--  FIXME figure a way either to make a scrollable modal, or another way to make the list in a nice way
+        <button class="trigger">Click here to trigger the modal!</button> <!--FIXME make this not a button, rather the text "List" to click on ->
+          <div class="liModal">
+              <div class="liModal-content">
+                  <span class="close-button">&times;</span>
+                  <p>Hello, I am a modal!</p>
+              </div>
+          </div>
+         -->
+        <!------------------------List Modal ends here-------------------->
+      </a>
+    </li>
     <li><a class="menuItem" >Reset gallery</a></li>
   </ul>
   <button class="hamburger">
@@ -48,7 +64,8 @@
     <i class="menuIcon material-icons">menu</i>
     <i class="closeIcon material-icons">close</i>
   </button>
-  <!--here it ends-->
+  <!--------------------------------Hamburger Menu ends here------------------->
+
     <section id="intro">
         <h2>Short introductory word</h2>
         <p>The aim of this page is to provide a little incursion in the history of some famous figures in literature history, 
@@ -62,7 +79,6 @@
     </section>
     <button type="reset" id="reset">Reset the page</button>
   </div>
-    <!---->
 
 <nav class="links" id="test">
   <!--

@@ -229,7 +229,9 @@ input[type=text], input[type=url], textarea, input[type=submit]{
  padding: 12px;
 }
 }
-/*Hamburger menu starts here*/
+
+/*------------------Hamburger Menu starts here---------------*/
+
 .menuItem {
   display: block;
   margin: 2rem 4rem;
@@ -278,9 +280,9 @@ input[type=text], input[type=url], textarea, input[type=submit]{
 }
 /*FIXME   MAKE ONE BUTTON APPEAR, NOT TWO
 
-/*Hamburger menu ends here*/
+/*--------------------Hamburger Menu ends here-------------------------*/
 
-/*Modal starts here*/
+/*---------------------Submit Modal starts here---------------------*/
 .modal {
   display: flex;
   flex-direction: column;
@@ -361,4 +363,53 @@ button {
 .hidden {
   display: none;
 }
-/*Modal ends here*/
+
+/*--------------------Submit Modal ends here---------------*/
+
+/*--------------------List Modal starts here-------------------*/
+
+.liModal {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(1.1);
+  transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+}
+
+.liModal-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 1rem 1.5rem;
+  width: 24rem;
+  border-radius: 0.5rem;
+}
+
+.close-button {
+  float: right;
+  width: 1.5rem;
+  line-height: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 0.25rem;
+  background-color: lightgray;
+}
+
+.close-button:hover {
+  background-color: darkgray;
+}
+
+.show-liModal {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1.0);
+  transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+}
+/*--------------List Modal ends here -------------------*/

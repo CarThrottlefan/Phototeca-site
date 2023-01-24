@@ -101,7 +101,7 @@ function displayDatabase()
     }
 }
 
-function authorDisplay(x) //gets all the elements of the submission for an author, combines and then adds them to the DOM
+function authorDisplay(x) //gets all the elements of the submission for an author, combines them and then adds them to the DOM
 {
     let skeleton = document.createElement('span');
 
@@ -175,7 +175,8 @@ let resetButton = document.getElementById("reset");
 let updateSubmit = document.querySelector('#authorPic');
     updateSubmit.addEventListener("click", updateAuthor);*/
     
-//hamburger menu code
+//-------------------Hamburger Menu starts here-----------------
+
 const menu = document.querySelector(".menu");
 //const menuItems = document.querySelectorAll(".menuItem");
 const hamburger= document.querySelector(".hamburger");
@@ -196,15 +197,17 @@ function toggleMenu() {
 
 hamburger.addEventListener("click", toggleMenu);
 
-/*modal*/
-const modal = document.querySelector(".modal");
+//-----------------Hamburger Menu ends here--------------------
+
+//----------------Submit Modal starts here-----------------
+const modalAuth = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const openModalBtn = document.querySelector(".btn-open");
 const closeModalBtn = document.querySelector(".btn-close");
 
 // close modal function
 const closeModal = function () {
-  modal.classList.add("hidden");
+  modalAuth.classList.add("hidden");
   overlay.classList.add("hidden");
 };
 
@@ -221,9 +224,32 @@ document.addEventListener("keydown", function (e) {
 
 // open modal function
 const openModal = function () {
-  modal.classList.remove("hidden");
+  modalAuth.classList.remove("hidden");
   overlay.classList.remove("hidden");
 };
 // open modal event
 openModalBtn.addEventListener("click", openModal);
 //modal ends here
+
+//-----------List Modal starts here----------------
+
+const liModal = document.querySelector(".liModal");
+const trigger = document.querySelector(".trigger");
+const closeButton = document.querySelector(".close-button");
+
+function toggleModal() {
+    liModal.classList.toggle("show-liModal");
+}
+
+function windowOnClick(event) {
+    if (event.target === liModal) {
+        toggleModal();
+    }
+}
+
+trigger.addEventListener("click", toggleModal);
+closeButton.addEventListener("click", toggleModal);
+window.addEventListener("click", windowOnClick);
+
+//------------------List Modal ends here------------------
+
