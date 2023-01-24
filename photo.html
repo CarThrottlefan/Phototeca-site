@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <!--<meta name="viewport" content="width=device-width, initial-scale=1">-->
     <link rel="stylesheet" href="photo.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="photo.js" async></script>
     <title>Our Phototeca</title>
 </head>
@@ -11,6 +12,44 @@
 <body>
   <div id="container"></div>
   <h1><span id="header">The protagonists of our Phototeca</span></h1>
+  <!--here starts the code for the hamburger menu, courtesy of https://dev.to/ljcdev/easy-hamburger-menu-with-js-2do0-->
+  <ul class="menu">
+    <li><a class="menuItem" href="#">Home</a></li>
+    <li>
+      <a class="menuItem" >
+      <!--Here starts the code for the modal, courtesy of https://www.freecodecamp.org/news/how-to-build-a-modal-with-javascript/-->
+        <section class="modal hidden">
+          <div class="flex">
+            <img src="https://avatars.githubusercontent.com/u/62628408?s=96&v=4" width="50px" height="50px" alt="user" />
+            <button class="btn-close">⨉</button>
+          </div>
+          <div>
+            <h2>Add your favourite authors:</h2>
+          </div>
+          <form action="https://wt.ops.labs.vu.nl/api23/53e16a12" method="post" id="submitForm">
+          <input type="text" id="author" name="author" placeholder="Author Name"> 
+          <input type="url" id="image" name="image" placeholder="Image URL"> 
+          <input type="text" id="alt" name="alt" placeholder="Alt Text"> 
+          <input type="text" id="description" name="description" placeholder="Description"> 
+          <input type="text" id="tags" name="tags" placeholder="Tags">
+          <input type="submit" value="Add">
+          </form>
+        </section>
+
+        <div class="overlay hidden"></div>
+        <button class="btn btn-open">Open Modal</button>
+      <!--here ends the code for the modal-->
+      </a>
+    </li>
+    <li><a class="menuItem" >List of current authors</a></li>
+    <li><a class="menuItem" >Reset gallery</a></li>
+  </ul>
+  <button class="hamburger">
+    <!-- material icons https://material.io/resources/icons/ -->
+    <i class="menuIcon material-icons">menu</i>
+    <i class="closeIcon material-icons">close</i>
+  </button>
+  <!--here it ends-->
     <section id="intro">
         <h2>Short introductory word</h2>
         <p>The aim of this page is to provide a little incursion in the history of some famous figures in literature history, 
@@ -38,11 +77,13 @@
   </div>
     <!---->
 
-<nav class="links">
+<nav class="links" id="test">
+  <!--
   <a href="https://en.wikipedia.org/wiki/George_Orwell">George Orwell</a>  | 
   <a href="https://en.wikipedia.org/wiki/Edgar_Allan_Poe">Edgar Allan Poe</a>  | 
   <a href="https://en.wikipedia.org/wiki/Dale_Carnegie">Dale Carnegie</a> 
   <a style="float:right" href="report.html"><img src="http://cdn.onlinewebfonts.com/svg/img_553946.png" alt="Compatible-icon" style="height:30px;margin-bottom: 30px;"></a>
+  -->
 </nav>
 
 </body>

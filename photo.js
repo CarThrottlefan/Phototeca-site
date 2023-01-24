@@ -111,6 +111,7 @@ function authorDisplay(x) //gets all the elements of the submission for an autho
         skeleton.appendChild(auth);
 
         let img = document.createElement('img');
+        img.setAttribute('id', 'authorPic');
         img.src = data[x].image;
         skeleton.appendChild(img);
 
@@ -154,6 +155,8 @@ async function resetDatabase(event)
   if(response.ok)
   {
     console.log('Reseted database');
+    refreshGallery();
+    getDatabase();
   }
   else
   {
@@ -163,3 +166,69 @@ async function resetDatabase(event)
 
 let resetButton = document.getElementById("reset");
     resetButton.addEventListener("click", resetDatabase);
+
+/*async function updateAuthor()
+{
+    //make it so that when a user clicks on the image, the form gets filled with data, then update will be easier via the already existing submit func
+}
+
+let updateSubmit = document.querySelector('#authorPic');
+    updateSubmit.addEventListener("click", updateAuthor);*/
+    
+//hamburger menu code
+const menu = document.querySelector(".menu");
+//const menuItems = document.querySelectorAll(".menuItem");
+const hamburger= document.querySelector(".hamburger");
+const closeIcon= document.querySelector(".closeIcon");
+const menuIcon = document.querySelector(".menuIcon");
+
+function toggleMenu() {
+  if (menu.classList.contains("showMenu")) {
+    menu.classList.remove("showMenu");
+    closeIcon.style.display = "none";
+    menuIcon.style.display = "block";
+  } else {
+    menu.classList.add("showMenu");
+    closeIcon.style.display = "block";
+    menuIcon.style.display = "none";
+  }
+}
+
+hamburger.addEventListener("click", toggleMenu);
+
+/*menuItems.forEach( //this hides the menu if an user clicks on it
+  function(menuItem) { 
+    menuItem.addEventListener("click", toggleMenu);
+  }
+)*/
+/*modal*/
+const modal = document.querySelector(".modal");
+const overlay = document.querySelector(".overlay");
+const openModalBtn = document.querySelector(".btn-open");
+const closeModalBtn = document.querySelector(".btn-close");
+
+// close modal function
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+};
+
+// close the modal when the close button and overlay is clicked
+closeModalBtn.addEventListener("click", closeModal);
+overlay.addEventListener("click", closeModal);
+
+// close modal when the Esc key is pressed
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape" && !modal.classList.contains("hidden")) {
+    closeModal();
+  }
+});
+
+// open modal function
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+// open modal event
+openModalBtn.addEventListener("click", openModal);
+//modal ends here
