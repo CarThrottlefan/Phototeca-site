@@ -94,6 +94,7 @@ p{
   font-style: initial;
   font-variant: normal;
   text-shadow: 2px 2px 3px black;
+  font-size: 15px;
 }
 
 .img-wrap:hover .img-description-layer {
@@ -101,8 +102,12 @@ visibility: visible;
 opacity: 1;
 }
 
+.author-name{
+  font-size: 1.4em;
+}
+
 .author-alt{
-font-size: 1.2em;
+font-size: 0.9em;
 transition: .3s;
 transform: translateY(1em);
 align-self: center;
@@ -119,12 +124,6 @@ text-align: center;
 
 p.intro{
   font: normal normal bold 13px/30px Verdana, serif;
-}
-
-ul{
-  list-style-image: url('https://loading.io/s/icon/bi40d7.svg');
-  list-style-position: outside;
-  list-style-type: square;
 }
 
 ol{
@@ -184,11 +183,6 @@ a:visited {
 
 a:hover {
   color: white;
-}
-
-ul {
-  text-align:left;
-  list-style: georgian outside;
 }
 
 nav {
@@ -353,8 +347,8 @@ position: fixed;
 z-index: 100;
 top: 1rem;
 right: 1rem;
-padding: 4px;
-border: #131c2c solid 1.5px;
+padding: 10px, 20px;
+border: #131c2c 2px;
 border-radius: 6px;
 background: #212c40;
 cursor: pointer;
@@ -465,4 +459,22 @@ z-index: 1;
 
 .hidden {
 display: none;
+}
+
+#filter-button{
+background-color: black;
+padding: 10px;
+border: #131c2c 2px;
+border-radius: 6px;
+background: #212c40;
+float: left;
+margin-left: 25px;
+margin-bottom: 25px;
+line-height: 1.2;
+font-size: 1.2em;
+}
+
+li{
+ display: inline;
+ padding: 25px;
 }

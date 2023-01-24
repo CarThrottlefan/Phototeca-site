@@ -71,6 +71,7 @@ async function validateSubmission(event)
   {
     refreshGallery();
     getDatabase();
+    updateList();
   }
   
 }
@@ -98,6 +99,8 @@ function displayDatabase()
     for(let person = 0; person < lastPerson; person++)
     {
         authorDisplay(person);
+        makeList(person);
+        //FIXME add author name func for list
     }
 }
 
@@ -213,6 +216,8 @@ async function resetDatabase(event)
     console.log('Reseted database');
     refreshGallery();
     getDatabase();
+    updateList();
+    
   }
   else
   {
@@ -290,23 +295,68 @@ openModalBtn.addEventListener("click", openModal);
 
 //-----------List Modal starts here----------------
 
-/*const liModal = document.querySelector(".liModal");
-const trigger = document.querySelector(".trigger");
-const closeButton = document.querySelector(".close-button");
+function makeList(x) //gets all the elements of the submission for an author, combines them and then adds them to the DOM
+{
+    /*let skeleton = document.createElement('span');
 
-function toggleModal() {
-    liModal.classList.toggle("show-liModal");
+        let auth = document.createElement('p');
+        let authTxt = document.createTextNode(data[x].author);
+        auth.appendChild(authTxt);
+        skeleton.appendChild(auth);
+
+        let img = document.createElement('img');
+        img.setAttribute('id', 'authorPic');
+        img.src = data[x].image;
+        skeleton.appendChild(img);
+
+        let alt = document.createElement('p');
+        let altTxt = document.createTextNode(data[x].alt);
+        alt.appendChild(altTxt);
+        skeleton.appendChild(alt);
+
+        let descript = document.createElement('p');
+        let descriptTxt = document.createTextNode(data[x].description);
+        descript.appendChild(descriptTxt);
+        skeleton.appendChild(descript);
+
+        let tags = document.createElement('p');
+        let tagsTxt = document.createTextNode(data[x].tags);
+        tags.appendChild(tagsTxt);
+        skeleton.appendChild(tags);
+
+    let connect = document.getElementById('authorsAlbum');
+    connect.appendChild(skeleton);*/
+    let skeleton = document.createElement('li');
+    
+    let input = document.createElement('input');
+    let inputNum = 'f' + x;
+    console.log(inputNum); //FIXME remove after testing
+    input.setAttribute('id', inputNum);
+    input.setAttribute('type', 'checkbox');
+    
+    let label = document.createElement('label');
+    label.setAttribute('for', inputNum);
+    let labelTxt = document.createTextNode(data[x].author);
+    label.appendChild(labelTxt);
+
+    skeleton.appendChild(input);
+    skeleton.appendChild(label);
+    let connect = document.querySelector('.filter-list');
+    connect.appendChild(skeleton);
+
 }
 
-function windowOnClick(event) {
-    if (event.target === liModal) {
-        toggleModal();
-    }
-}
+function updateList() //remove ul, make a new one
+{
+    let toRemove = document.querySelector('.filter-list');
+    toRemove.remove();
 
-trigger.addEventListener("click", toggleModal);
-closeButton.addEventListener("click", toggleModal);
-window.addEventListener("click", windowOnClick);*/
+    let newUl = document.createElement('ul');
+    newUl.classList.add('filter-list');
+    //newSpan.setAttribute('id', 'authorsAlbum');
+    let connect = document.getElementById('filter-container');
+    connect.appendChild(newUl);
+}
 
 //------------------List Modal ends here------------------
 
