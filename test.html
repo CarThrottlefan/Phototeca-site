@@ -33,7 +33,7 @@
           <input type="text" id="description" name="description" placeholder="Description"> 
           <input type="text" id="tags" name="tags" placeholder="Tags">
           <p>
-          <input type="submit" value="Add">
+          <input type="submit" value="Add" id="add-button">
           </p>
           </form>
         </section>
@@ -43,13 +43,13 @@
       <!--here ends the code for the modal-->
       </a>
     </li>
-    <li><a class="menuItem" >List of current authors</a></li>
-    <li><a class="menuItem" >Reset gallery</a></li>
+    <li><a class="menuItem" href="#filter-button">List of current authors</a></li>
+    <li><a class="menuItem" id="reset">Reset gallery</a></li>
   </ul>
 
   <button class="hamburger">
     <!-- material icons https://material.io/resources/icons/ -->
-    <i class="menuIcon material-icons">menu</i>
+   <i class="menuIcon material-icons">menu</i>
     <i class="closeIcon material-icons">close</i>
   </button>
 
@@ -62,7 +62,7 @@
     <div id="filter-button">Filter the authors:</div>
     <div id="filter-container" class="gallery-filter">
         <ul class="filter-list">
-    </ul>
+        </ul>
    </div>
     <section id="album">      
         <div class="table-body" id="authorsAlbum">
