@@ -102,82 +102,51 @@ function displayDatabase()
     {
         authorDisplay(person);
         makeList(person);
-        //FIXME add author name func for list
     }
 }
 
 function authorDisplay(x) //gets all the elements of the submission for an author, combines them and then adds them to the DOM
 {
-    /*let skeleton = document.createElement('span');
-
-        let auth = document.createElement('p');
-        let authTxt = document.createTextNode(data[x].author);
-        auth.appendChild(authTxt);
-        skeleton.appendChild(auth);
-
-        let img = document.createElement('img');
-        img.setAttribute('id', 'authorPic');
-        img.src = data[x].image;
-        skeleton.appendChild(img);
-
-        let alt = document.createElement('p');
-        let altTxt = document.createTextNode(data[x].alt);
-        alt.appendChild(altTxt);
-        skeleton.appendChild(alt);
-
-        let descript = document.createElement('p');
-        let descriptTxt = document.createTextNode(data[x].description);
-        descript.appendChild(descriptTxt);
-        skeleton.appendChild(descript);
-
-        let tags = document.createElement('p');
-        let tagsTxt = document.createTextNode(data[x].tags);
-        tags.appendChild(tagsTxt);
-        skeleton.appendChild(tags);
-
-    let connect = document.getElementById('authorsAlbum');
-    connect.appendChild(skeleton);*/
-
     let skeleton = document.createElement('div');
 
         let imgSkeleton = document.createElement('div');
         imgSkeleton.classList.add('cell');
 
-            let imgWrapSkeleton = document.createElement('div');
-            imgWrapSkeleton.classList.add('img-wrap');
+        let imgWrapSkeleton = document.createElement('div');
+        imgWrapSkeleton.classList.add('img-wrap');
 
-                let img = document.createElement('img');
-                img.classList.add('album-image');
-                img.src = data[x].image;
+        let img = document.createElement('img');
+        img.classList.add('album-image');
+        img.src = data[x].image;
 
-                    let imgDescript = document.createElement('div');
-                    imgDescript.classList.add('img-description-layer');
+        let imgDescript = document.createElement('div');
+        imgDescript.classList.add('img-description-layer');
 
-                        let author = document.createElement('p');
-                        author.classList.add('author-name');
-                        let authorTxt = document.createTextNode(data[x].author);
-                        author.appendChild(authorTxt);
+        let author = document.createElement('p');
+        author.classList.add('author-name');
+        let authorTxt = document.createTextNode(data[x].author);
+        author.appendChild(authorTxt);
                     
-                        let alt = document.createElement('p');
-                        alt.classList.add('author-alt');
-                        let altTxt = document.createTextNode(data[x].alt);
-                        alt.appendChild(altTxt);
+        let alt = document.createElement('p');
+        alt.classList.add('author-alt');
+        let altTxt = document.createTextNode(data[x].alt);
+        alt.appendChild(altTxt);
 
-                        let tags = document.createElement('p');
-                        tags.classList.add('img-tags');
-                        let tagsTxt = document.createTextNode(data[x].tags);
-                        tags.appendChild(tagsTxt);
+        let tags = document.createElement('p');
+        tags.classList.add('img-tags');
+        let tagsTxt = document.createTextNode(data[x].tags);
+        tags.appendChild(tagsTxt);
 
-                    imgDescript.appendChild(author);
-                    imgDescript.appendChild(alt);
-                    imgDescript.appendChild(tags);
+        imgDescript.appendChild(author);
+        imgDescript.appendChild(alt);
+        imgDescript.appendChild(tags);
                 
-            imgWrapSkeleton.appendChild(img);
-            imgWrapSkeleton.appendChild(imgDescript);
+        imgWrapSkeleton.appendChild(img);
+        imgWrapSkeleton.appendChild(imgDescript);
 
         imgSkeleton.appendChild(imgWrapSkeleton);
         skeleton.appendChild(imgSkeleton);
-
+//-----------------------------------------------------       
     let descriptSkeleton = document.createElement('div');
     descriptSkeleton.classList.add('cell');
         
@@ -187,8 +156,7 @@ function authorDisplay(x) //gets all the elements of the submission for an autho
 
     descriptSkeleton.appendChild(descript);
     skeleton.appendChild(descriptSkeleton);
-
-
+//-----------------------------------------------------
     let connect = document.querySelector('.table-body');
     connect.appendChild(skeleton);
 }
@@ -201,7 +169,6 @@ function refreshGallery()
     let newDiv = document.createElement('div');
     newDiv.classList.add('table-body');
     newDiv.setAttribute('id', 'authorsAlbum');
-    //newSpan.setAttribute('id', 'authorsAlbum');
     let connect = document.getElementById('album');
     connect.appendChild(newDiv);
 }
@@ -220,7 +187,6 @@ async function resetDatabase(event)
     refreshGallery();
     getDatabase();
     updateList();
-    
   }
   else
   {
@@ -230,19 +196,9 @@ async function resetDatabase(event)
 
 let resetButton = document.getElementById("reset");
     resetButton.addEventListener("click", resetDatabase);
-
-/*async function updateAuthor()
-{
-    //make it so that when a user clicks on the image, the form gets filled with data, then update will be easier via the already existing submit func
-}
-
-let updateSubmit = document.querySelector('#authorPic');
-    updateSubmit.addEventListener("click", updateAuthor);*/
     
 //-------------------Hamburger Menu starts here-----------------
-
 const menu = document.querySelector(".menu");
-//const menuItems = document.querySelectorAll(".menuItem");
 const hamburger= document.querySelector(".hamburger");
 const closeIcon= document.querySelector(".closeIcon");
 const menuIcon = document.querySelector(".menuIcon");
@@ -261,7 +217,6 @@ function toggleMenu() {
 
 hamburger.addEventListener("click", toggleMenu);
 closeIcon.style.display = "none";
-
 //-----------------Hamburger Menu ends here--------------------
 
 //----------------Submit Modal starts here-----------------
@@ -295,40 +250,11 @@ const openModal = function () {
 // open modal event
 openModalBtn.addEventListener("click", openModal);
 //modal ends here
+//--------------Submit Modal ends here-------------------
 
-//-----------List Modal starts here----------------
-
+//------------------List starts here-----------------------
 function makeList(x) //gets all the elements of the submission for an author, combines them and then adds them to the DOM
 {
-    /*let skeleton = document.createElement('span');
-
-        let auth = document.createElement('p');
-        let authTxt = document.createTextNode(data[x].author);
-        auth.appendChild(authTxt);
-        skeleton.appendChild(auth);
-
-        let img = document.createElement('img');
-        img.setAttribute('id', 'authorPic');
-        img.src = data[x].image;
-        skeleton.appendChild(img);
-
-        let alt = document.createElement('p');
-        let altTxt = document.createTextNode(data[x].alt);
-        alt.appendChild(altTxt);
-        skeleton.appendChild(alt);
-
-        let descript = document.createElement('p');
-        let descriptTxt = document.createTextNode(data[x].description);
-        descript.appendChild(descriptTxt);
-        skeleton.appendChild(descript);
-
-        let tags = document.createElement('p');
-        let tagsTxt = document.createTextNode(data[x].tags);
-        tags.appendChild(tagsTxt);
-        skeleton.appendChild(tags);
-
-    let connect = document.getElementById('authorsAlbum');
-    connect.appendChild(skeleton);*/
     if(!names.includes(data[x].author))
     {
         names.push(data[x].author);
@@ -337,7 +263,6 @@ function makeList(x) //gets all the elements of the submission for an author, co
         
         let input = document.createElement('input');
         let inputNum = 'f' + x;
-        console.log(inputNum); //FIXME remove after testing
         input.setAttribute('id', inputNum);
         input.setAttribute('type', 'checkbox');
         
@@ -353,17 +278,14 @@ function makeList(x) //gets all the elements of the submission for an author, co
     }
 }
 
-function updateList() //remove ul, make a new one
+function updateList() 
 {
     let toRemove = document.querySelector('.filter-list');
     toRemove.remove();
 
     let newUl = document.createElement('ul');
     newUl.classList.add('filter-list');
-    //newSpan.setAttribute('id', 'authorsAlbum');
     let connect = document.getElementById('filter-container');
     connect.appendChild(newUl);
 }
-
-//------------------List Modal ends here------------------
-
+//------------------List ends here------------------
