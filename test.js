@@ -304,10 +304,8 @@ function getFilters()
     
     for(let i = 0; i < list.length; i++){
         list[i].addEventListener('change', function(){
-            
             currFilters.push(list[i].getAttribute('data-filter'));
             activeFilter();
-            console.log('filter');
         })
     }
 
@@ -318,7 +316,6 @@ function getFilters()
 function activeFilter()
 {
     let lastPerson = data.length;
-    console.log(lastPerson);
     refreshGallery();
     for(let person = 0; person < lastPerson; person++)
     {
