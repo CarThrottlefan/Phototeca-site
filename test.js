@@ -334,6 +334,7 @@ function deactivateFilter()
 {
     refreshGallery();
     getDatabase();
-    names=[];
+    currFilters = [];
+    names = [];
     updateList();
 }
