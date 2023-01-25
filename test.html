@@ -5,7 +5,7 @@
     <meta content="width=device-width, initial-scale=1" name="viewport">
     <link rel="stylesheet" href="test.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="test.js" async></script>
+    <script defer src="test.js" async></script>
     <title>Our Phototeca</title>
 </head>
 
@@ -59,7 +59,7 @@
         some of which might be familiar to the reader through their universally known work</p>
     </section>
 
-    <div id="filter-button">Filter the authors:</div>
+    <div id="filter-button" data-filter="all">Show all:</div>
     <div id="filter-container" class="gallery-filter">
         <ul class="filter-list">
         </ul>
@@ -68,9 +68,6 @@
         <div class="table-body" id="authorsAlbum">
         </div>
     </section>
-                <div class="cell">
-                <button type="reset" id="reset">Reset the page</button>
-                </div>
         </div>
         
 

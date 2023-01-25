@@ -1,6 +1,7 @@
 let submitValid = false;
 let data;
 let names = [];
+let currFilters = [];
 
 async function validateSubmission(event)
 {
@@ -102,12 +103,15 @@ function displayDatabase()
     {
         authorDisplay(person);
         makeList(person);
+        getFilters();
     }
 }
 
 function authorDisplay(x) //gets all the elements of the submission for an author, combines them and then adds them to the DOM
 {
     let skeleton = document.createElement('div');
+    skeleton.setAttribute('data-item', data[x].author);
+    skeleton.classList.add('item');
 
         let imgSkeleton = document.createElement('div');
         imgSkeleton.classList.add('cell');
@@ -260,6 +264,8 @@ function makeList(x) //gets all the elements of the submission for an author, co
         names.push(data[x].author);
 
         let skeleton = document.createElement('li');
+        skeleton.setAttribute('data-filter', data[x].author);
+        skeleton.classList.add('checkbox');
         
         let input = document.createElement('input');
         let inputNum = 'f' + x;
@@ -289,3 +295,45 @@ function updateList()
     connect.appendChild(newUl);
 }
 //------------------List ends here------------------
+
+//------------------Filter gallery------------------
+function getFilters()
+{
+    let list = document.querySelectorAll('.checkbox');
+    console.log(list);
+    
+    for(let i = 0; i < list.length; i++){
+        list[i].addEventListener('change', function(){
+            
+            currFilters.push(list[i].getAttribute('data-filter'));
+            activeFilter();
+            console.log('filter');
+        })
+    }
+
+    let button = document.getElementById('filter-button');
+    button.addEventListener('click', deactivateFilter);
+}
+
+function activeFilter()
+{
+    let lastPerson = data.length;
+    console.log(lastPerson);
+    refreshGallery();
+    for(let person = 0; person < lastPerson; person++)
+    {
+        if(currFilters.includes(data[person].author))
+        {
+            authorDisplay(person);
+            makeList(person);
+        }
+    }
+}
+
+function deactivateFilter()
+{
+    refreshGallery();
+    getDatabase();
+    names=[];
+    updateList();
+}
