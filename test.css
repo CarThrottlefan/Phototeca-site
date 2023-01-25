@@ -45,7 +45,7 @@ padding: 30px;
 text-align: center;
 }
 
-#filters-list{
+.filter-list{
   margin-left: 160px;
 }
 
@@ -276,7 +276,7 @@ h1, #header, p, h2 {
 
 #album-image {
   float: none;
-  width: 130%;
+  width: 100%;
 }
 }
 
@@ -338,7 +338,7 @@ input[type=text], input[type=url], textarea, input[type=submit], button{
   left: 30px;
 }
 
-#add-button{
+#add-button, #update-button{
   padding: 15px 40px;
   font-size: 1.2em;
 }
@@ -378,15 +378,19 @@ background: #212c40;
 cursor: pointer;
 opacity: 0.6;
 }
+
+nav{
+  max-width: 90%;
+}
 }
 
 @media (max-width: 400px) {
 h1, p, h2 {
-  font-size: 3vmax;
+  font-size: 2vmax;
 }
 
 #header {
-  font-size: 15vmin;
+  font-size: 10vmin;
 }
 
 input[type=text], input[type=url], textarea {
@@ -394,7 +398,7 @@ input[type=text], input[type=url], textarea {
   padding: 10px;
 }
 
-#add-button{
+#add-button, #update-button{
   padding: 30px 75px;
   font-size: 1.3em;
 }
@@ -582,7 +586,7 @@ text-indent: 30px;
 text-shadow: none;
 }
 
-#add-button{
+#add-button, #update-button{
 padding: 10px 30px;
 font-size: 1.1em;
 }
