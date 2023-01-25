@@ -3,9 +3,15 @@ let data;
 let names = [];
 let currFilters = [];
 
+let authUpdate, imgUpdate, altUpdate, tagUpdate, descriptUpdate, idUpdate;
+
 async function validateSubmission(event)
 {
-    event.preventDefault();
+    console.log(event.submitter.value);
+    
+    if(event.submitter.value == "Add")
+    {
+        event.preventDefault();
 
     form.author.style.backgroundColor = "white";
     form.image.style.backgroundColor = "white";
@@ -69,14 +75,77 @@ async function validateSubmission(event)
     console.error('Error:', error);
   });
 
+}
+
+else //for the Update functionality
+{
+    event.preventDefault();
+
+    form.author.style.backgroundColor = "white";
+    form.image.style.backgroundColor = "white";
+    form.description.style.backgroundColor = "white";
+    form.tags.style.backgroundColor = "white";
+    form.alt.style.backgroundColor = "white";
+
+    console.log( authUpdate )
+    
+    if(form.author.value === "")
+    {
+        form.author.style.backgroundColor = "#e63d3d";
+        submitValid = false;
+    }
+    else if(form.image.value === "")
+    {
+        form.image.style.backgroundColor = "#e63d3d";
+        submitValid = false;
+    }
+    else if(form.description.value === "")
+    {
+        form.description.style.backgroundColor = "#e63d3d";
+        submitValid = false;
+    }
+    else if(form.alt.value === "")
+    {
+        form.alt.style.backgroundColor = "#e63d3d";
+        submitValid = false;
+    }
+    else if(form.tags.value === "")
+    {
+        form.tags.style.backgroundColor = "#e63d3d";
+        submitValid = false;
+    }
+    else
+    {
+        submitValid = true;
+    }
+    
+    let toSend = {
+        author: form.author.value,
+        image: form.image.value,
+        alt: form.alt.value,
+        description: form.description.value,
+        tags: form.tags.value
+    };
+    
+    let jsonString = JSON.stringify(toSend);
+    console.log(jsonString);
+   
+    await fetch('https://wt.ops.labs.vu.nl/api23/53e16a12/item/' + idUpdate, {
+  method: 'PUT',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: jsonString,
+})
+}
   if(submitValid)
   {
+    console.log('valid');
     refreshGallery();
     getDatabase();
     names=[];
     updateList();
   }
-  
 }
 
 let form = document.getElementById("submitForm");
@@ -112,9 +181,19 @@ function authorDisplay(x) //gets all the elements of the submission for an autho
     let skeleton = document.createElement('div');
     skeleton.setAttribute('data-item', data[x].author);
     skeleton.classList.add('item');
+    skeleton.setAttribute('id', data[x].id);
+    skeleton.setAttribute('num', x);
 
         let imgSkeleton = document.createElement('div');
         imgSkeleton.classList.add('cell');
+        imgSkeleton.addEventListener("click",event => { console.log( data[x] )
+        idUpdate = data[x].id; authUpdate = data[x].author; imgUpdate = data[x].image; descriptUpdate = data[x].description; tagUpdate = data[x].tags; altUpdate = data[x].alt 
+        form.author.value = authUpdate;
+        form.image.value = imgUpdate;
+        form.description.value = descriptUpdate;
+        form.alt.value = altUpdate;
+        form.tags.value = tagUpdate;
+    });
 
         let imgWrapSkeleton = document.createElement('div');
         imgWrapSkeleton.classList.add('img-wrap');
@@ -300,7 +379,6 @@ function updateList()
 function getFilters()
 {
     let list = document.querySelectorAll('.checkbox');
-    console.log(list);
     
     for(let i = 0; i < list.length; i++){
         list[i].addEventListener('change', function(){
